@@ -1,0 +1,782 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6008178856933583683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8612414586605920729}
+  m_Layer: 0
+  m_Name: Sea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8612414586605920729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6008178856933583683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6595647324959302029}
+  - {fileID: 5998928379498503341}
+  - {fileID: 5817682439077708426}
+  - {fileID: 199318687926195421}
+  - {fileID: 5333082559466032287}
+  - {fileID: 3093588413255827146}
+  - {fileID: 5504723366547470975}
+  - {fileID: 1199270475562172488}
+  - {fileID: 8821945430814364857}
+  - {fileID: 7842197083907407503}
+  - {fileID: 3927519169110175320}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &659110137936768136
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8612414586605920729}
+    m_Modifications:
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6220002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.55669165
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.83071923
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 112.345
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623523953411525709, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_Name
+      value: Tropical Fish (23)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+--- !u!4 &5504723366547470975 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+  m_PrefabInstance: {fileID: 659110137936768136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1100003959013317224
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8612414586605920729}
+    m_Modifications:
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9489999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.816
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.8840001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8421266
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5392799
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 65.269
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623523953411525709, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_Name
+      value: Tropical Fish (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+--- !u!4 &5333082559466032287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+  m_PrefabInstance: {fileID: 1100003959013317224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1584592844516988029
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8612414586605920729}
+    m_Modifications:
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.84000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5580001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.3699999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.52531976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.85090494
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 116.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623523953411525709, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_Name
+      value: Tropical Fish (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+--- !u!4 &5817682439077708426 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+  m_PrefabInstance: {fileID: 1584592844516988029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1585667303470156378
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8612414586605920729}
+    m_Modifications:
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.14000034
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7690001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70020014
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7139466
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 91.114
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623523953411525709, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_Name
+      value: Tropical Fish
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+--- !u!4 &5998928379498503341 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+  m_PrefabInstance: {fileID: 1585667303470156378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2996020904135846008
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8612414586605920729}
+    m_Modifications:
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4840002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6935703
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.72038907
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 92.173
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623523953411525709, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_Name
+      value: Tropical Fish (35)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+--- !u!4 &7842197083907407503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+  m_PrefabInstance: {fileID: 2996020904135846008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4552238937356943950
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8612414586605920729}
+    m_Modifications:
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.487
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6634563
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7482151
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 96.872
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623523953411525709, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_Name
+      value: Tropical Fish (31)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+--- !u!4 &8821945430814364857 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+  m_PrefabInstance: {fileID: 4552238937356943950}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5153537285664195114
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8612414586605920729}
+    m_Modifications:
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.66900015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5110002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.902
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.820678
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.57139105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 69.695
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623523953411525709, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_Name
+      value: Tropical Fish (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+--- !u!4 &199318687926195421 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+  m_PrefabInstance: {fileID: 5153537285664195114}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6189564049335883455
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8612414586605920729}
+    m_Modifications:
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5029998
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7279824
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.68559575
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 86.565
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623523953411525709, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_Name
+      value: Tropical Fish (27)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+--- !u!4 &1199270475562172488 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+  m_PrefabInstance: {fileID: 6189564049335883455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7892729474840550131
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8612414586605920729}
+    m_Modifications:
+    - target: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999709
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0076357494
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416686826763608516, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+      propertyPath: m_Name
+      value: Water Hexagon
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+--- !u!4 &6595647324959302029 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3891367261425122174, guid: 6ed72231917217443a5dd1dc300f9cd0, type: 3}
+  m_PrefabInstance: {fileID: 7892729474840550131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8047853181422430269
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8612414586605920729}
+    m_Modifications:
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7249999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8145347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.58011496
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 70.917
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623523953411525709, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_Name
+      value: Tropical Fish (15)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+--- !u!4 &3093588413255827146 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+  m_PrefabInstance: {fileID: 8047853181422430269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8340750558861703343
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8612414586605920729}
+    m_Modifications:
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5419998
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7680649
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.64037204
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 79.639
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623523953411525709, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+      propertyPath: m_Name
+      value: Tropical Fish (39)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+--- !u!4 &3927519169110175320 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4990293575528797943, guid: 1b59bfacbcd158248a76ac17470a5fd3, type: 3}
+  m_PrefabInstance: {fileID: 8340750558861703343}
+  m_PrefabAsset: {fileID: 0}
