@@ -8,7 +8,6 @@ public class Dice : MonoBehaviour
     static Rigidbody rb;
     public static Vector3 diceVelocity;
     public Boolean roll = true;
-    public int a = 0;
 
     void Start()
     //Initialization

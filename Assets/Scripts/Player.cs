@@ -9,17 +9,22 @@ public class Player : MonoBehaviour
     private int cities = 4;
     private int roads = 15;
     private Boolean canPlace = false;
-    public GameObject Outline;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+
+
 
     // Update is called once per frame
-    private void lineUp() 
+    void Update()
     {
-        
-    }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Vector3 mousePos = Input.mousePosition;
+            {
+                String pos = (mousePos.x + " " + mousePos.y);
+                Debug.Log(pos);
+            }
 
+        }
+    }
 }
+

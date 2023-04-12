@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class GenerateTiles : MonoBehaviour
 {
     // Get a reference to all the different hex tile game objects
@@ -17,11 +17,14 @@ public class GenerateTiles : MonoBehaviour
     public GameObject mountains;
     public GameObject sea;
     public GameObject harbour;
-    public GameObject Outline;
+    public GameObject outline;
+
+    public int hexRadius = 7;
 
     public int gridSize = 3;
 
-    private int m_HexRadius = 7;
+    // An arraylist containing all of the terrain tiles that will be generated in the scene. This variable will be passed to other classes
+    public ArrayList terrainTilesInstance = new ArrayList();
 
     /*
     // Old implementation of the bucket system
@@ -40,7 +43,7 @@ public class GenerateTiles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnTiles();
+        //SpawnTiles();
     }
 
     /*
@@ -89,7 +92,7 @@ public class GenerateTiles : MonoBehaviour
 
     }
 
-    private void SpawnTiles()
+    public ArrayList SpawnTiles()
     {
         // Get and store the arraylists generated from these two method calls
         ArrayList terrainBucket = getTerrainBucket();
@@ -118,7 +121,7 @@ public class GenerateTiles : MonoBehaviour
                 // Check if the tiles are being generated at the bottom or leftmost side. If it is, get the index position from waterTilesIndexBottomLeft
                 if (zOffset == -gridSize || xOffset == -tilesInRow)
                 {
-                    Instantiate(waterTiles[waterTilesIndexBottomLeft % 2], new Vector3(Mathf.Sqrt(3) * m_HexRadius * xOffset, 1, 1.5f * m_HexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
+                    Instantiate(waterTiles[waterTilesIndexBottomLeft % 2], new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
                     waterTilesIndexBottomLeft++;
                 }
 
@@ -126,7 +129,7 @@ public class GenerateTiles : MonoBehaviour
                 else if (zOffset == gridSize || xOffset == tilesInRow)
                 {
                     // The position of the tile is calculated using the formula: x position = Sqrt(3) * radius * x offset, z position = 1.5 * radius * z offset
-                    Instantiate(waterTiles[waterTilesIndexTopRight % 2], new Vector3(Mathf.Sqrt(3) * m_HexRadius * xOffset, 1, 1.5f * m_HexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
+                    Instantiate(waterTiles[waterTilesIndexTopRight % 2], new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
                     waterTilesIndexTopRight++;
                 }
 
@@ -135,15 +138,17 @@ public class GenerateTiles : MonoBehaviour
                     // A random number is used to access the terrainBucket arraylist.
                     // The object is instantiated and then removed from the arraylist
                     int rand = UnityEngine.Random.Range(0, terrainBucket.Count);
-                    Instantiate((GameObject)terrainBucket[rand], new Vector3(Mathf.Sqrt(3) * m_HexRadius * xOffset, 1, 1.5f * m_HexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
+                    terrainTilesInstance.Add(Instantiate((GameObject)terrainBucket[rand], new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f)));
                     terrainBucket.RemoveAt(rand);
 
+
                     // A terrain tile is generated with an outline around it
-                    Instantiate(Outline, new Vector3(Mathf.Sqrt(3) * m_HexRadius * xOffset, 1, 1.5f * m_HexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
+                    Instantiate(outline, new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
                 }
             }
             reverse_i -= 0.5f;
             zOffset --;
         }
+        return terrainTilesInstance;
     }
 }
