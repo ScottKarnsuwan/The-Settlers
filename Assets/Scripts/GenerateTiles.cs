@@ -18,8 +18,8 @@ public class GenerateTiles : MonoBehaviour
     public GameObject sea;
     public GameObject harbour;
     public GameObject outline;
-
-    public int hexRadius = 7;
+    
+    [HideInInspector] public int hexRadius = 7;
 
     public int gridSize = 3;
 
@@ -135,7 +135,7 @@ public class GenerateTiles : MonoBehaviour
 
                 else
                 {
-                    // A random number is used to access the terrainBucket arraylist.
+                    // A random number is used to access the terrainBucket arraylist
                     // The object is instantiated and then removed from the arraylist
                     int rand = UnityEngine.Random.Range(0, terrainBucket.Count);
                     terrainTilesInstance.Add(Instantiate((GameObject)terrainBucket[rand], new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f)));

@@ -20,7 +20,9 @@ public class GenerateNumberTiles : MonoBehaviour
     public GameObject numberTile11;
     public GameObject numberTile12;
 
-    int hexRadius;
+    private int m_hexRadius;
+    private GameObject m_SelectedTerrainTile;
+
 
     // An arraylist containing all of the terrain tiles that have been instantiated into the scene
     public ArrayList terrainTilesList = new ArrayList();
@@ -29,7 +31,7 @@ public class GenerateNumberTiles : MonoBehaviour
     void Start()
     {
         // Get and store the hexagon radius by passing the value from the GenerateTiles script
-        hexRadius = FindObjectOfType<GenerateTiles>().hexRadius;
+        m_hexRadius = FindObjectOfType<GenerateTiles>().hexRadius;
 
         // Call the SpawnTiles() method from the GenerateTiles script and store the return value in terrainTilesList
         // This also instantiates the tiles into the scene
@@ -38,7 +40,8 @@ public class GenerateNumberTiles : MonoBehaviour
         SpawnNumberTiles(terrainTilesList);
     }
 
-    private ArrayList getNumberTilesBucket(ArrayList terrainTilesInstance)
+    // Generate an arraylist called numberBuckeet that stores the correct number of each number tile
+    private ArrayList GetNumberTilesBucket()
     {
         GameObject[] numberTiles = { numberTile6, numberTile5, numberTile9, numberTile4, numberTile10, numberTile3, numberTile8, numberTile11, numberTile2, numberTile12 };
 
@@ -46,20 +49,37 @@ public class GenerateNumberTiles : MonoBehaviour
         ArrayList numberBucket = new ArrayList();
 
         // A for loop to add number tiles into the bucket for every terrain tile in the scene minus the desert tile
-        for (int i = 0; i < terrainTilesInstance.Count - 1; i++)
+        for (int i = 0; i < terrainTilesList.Count - 1; i++)
         {
             numberBucket.Add(numberTiles[i % 10]);
         }
         return numberBucket;
     }
 
-    private void SpawnNumberTiles(ArrayList terrainTilesInstance)
+    // Generate an arraylist called terrainTilesIndex that just populates the arraylist with (0,1,2,3...) whilst omitting the index of the desert tile
+    public ArrayList GetTerrainTilesIndex()
+    {
+        ArrayList terrainTilesIndex = new ArrayList();
+
+        for (int i = 0; i < terrainTilesList.Count; i++)
+        {
+            m_SelectedTerrainTile = (GameObject)terrainTilesList[i];
+            if (m_SelectedTerrainTile.name != "Desert(Clone)")
+            {
+                terrainTilesIndex.Add(i);
+            }
+        }
+
+        return terrainTilesIndex;
+    }
+
+    private void SpawnNumberTiles(ArrayList terrainTilesList)
     {
         // Get and store the arraylist generated from the getNumberTilesBucket() method
-        ArrayList numberBucket = getNumberTilesBucket(terrainTilesInstance);
+        ArrayList numberBucket = GetNumberTilesBucket();
 
         // An arraylist to store the indexes of each terrain tile
-        ArrayList terrainTilesIndex = new ArrayList();
+        ArrayList terrainTilesIndex = GetTerrainTilesIndex();
 
         // An arraylist to store number tiles that have been instantiated
         // This will only used to keep track of numberTile6 and numberTile8 (red number tiles) to make sure they don't spawn on adjacent hexes
@@ -69,23 +89,12 @@ public class GenerateNumberTiles : MonoBehaviour
         // The selected tile will be stored in selectedTerrainTile
         // Its position will be stored in selectedTerrainTilePosition
         int rand;
-        GameObject selectedTerrainTile;
         Vector3 selectedTerrainTilePosition;
 
         // A variable to check whether numberTile6 or numberTile8 have spawned next to eachother
         bool isAdjacent = false;
 
         GameObject selectedNumberTile;
-
-        // A for loop to initialize the terrainTilesIndex, which just populates the arraylist with (0,1,2,3...) whilst omitting the index of the desert tile
-        for (int i = 0; i < terrainTilesInstance.Count; i++)
-        {
-            selectedTerrainTile = (GameObject)terrainTilesInstance[i];
-            if (selectedTerrainTile.name != "Desert(Clone)")
-            {
-                terrainTilesIndex.Add(i);
-            }
-        }
 
         // Initialize all instances of numberTile6 and numberTile8 from the numberBucket first
         while (numberBucket.Contains(numberTile6) || numberBucket.Contains(numberTile8))
@@ -96,14 +105,14 @@ public class GenerateNumberTiles : MonoBehaviour
 
             // Select a random terrain tile and store it and its position
             rand = UnityEngine.Random.Range(0, terrainTilesIndex.Count);
-            selectedTerrainTile = (GameObject)terrainTilesInstance[(int)terrainTilesIndex[rand]];
-            selectedTerrainTilePosition = selectedTerrainTile.transform.position;
+            m_SelectedTerrainTile = (GameObject)terrainTilesList[(int)terrainTilesIndex[rand]];
+            selectedTerrainTilePosition = m_SelectedTerrainTile.transform.position;
 
             // A loop that iterates through each game object in the numberTilesList to check if any of them are within Sqrt(3) * radius of the new number tile to be instantiated
             foreach (GameObject numberTile in numberTilesList)
             {
                 Vector3 numberTilePosition = new Vector3(numberTile.transform.position.x, selectedTerrainTilePosition.y, numberTile.transform.position.z);
-                if (Math.Abs(Vector3.Distance(selectedTerrainTilePosition, numberTilePosition)) <= Mathf.Sqrt(3) * hexRadius)
+                if (Math.Abs(Vector3.Distance(selectedTerrainTilePosition, numberTilePosition)) <= Mathf.Sqrt(3) * m_hexRadius)
                 {
                     isAdjacent = true;
                 }
@@ -119,7 +128,7 @@ public class GenerateNumberTiles : MonoBehaviour
             // Instantiate the number tile above the selected terrain tile and make the number tile a child of it
             numberTilesList.Add(Instantiate((GameObject)numberBucket[numberBucket.IndexOf(whichNumberTile)], new Vector3(selectedTerrainTilePosition.x, 6.0f, selectedTerrainTilePosition.z), Quaternion.Euler(0f, 0f, 0f)));
             selectedNumberTile = (GameObject)numberTilesList[numberTilesList.Count - 1];
-            selectedNumberTile.transform.parent = selectedTerrainTile.transform;
+            selectedNumberTile.transform.parent = m_SelectedTerrainTile.transform;
             
             // Remove the instantiated number tile from the bucket 
             numberBucket.Remove(whichNumberTile);
@@ -132,10 +141,10 @@ public class GenerateNumberTiles : MonoBehaviour
         for (int i = 0; i < numberBucket.Count; i++)
         {
             rand = UnityEngine.Random.Range(0, terrainTilesIndex.Count);
-            selectedTerrainTile = (GameObject)terrainTilesInstance[(int)terrainTilesIndex[rand]];
-            selectedTerrainTilePosition = selectedTerrainTile.transform.position;
+            m_SelectedTerrainTile = (GameObject)terrainTilesList[(int)terrainTilesIndex[rand]];
+            selectedTerrainTilePosition = m_SelectedTerrainTile.transform.position;
             selectedNumberTile = Instantiate((GameObject)numberBucket[i], new Vector3(selectedTerrainTilePosition.x, 6.0f, selectedTerrainTilePosition.z), Quaternion.Euler(0f, 0f, 0f));
-            selectedNumberTile.transform.parent = selectedTerrainTile.transform;
+            selectedNumberTile.transform.parent = m_SelectedTerrainTile.transform;
             terrainTilesIndex.RemoveAt(rand);
         }
     }
