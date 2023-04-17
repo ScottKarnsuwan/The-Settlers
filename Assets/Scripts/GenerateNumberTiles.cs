@@ -56,30 +56,22 @@ public class GenerateNumberTiles : MonoBehaviour
         return numberBucket;
     }
 
-    // Generate an arraylist called terrainTilesIndex that just populates the arraylist with (0,1,2,3...) whilst omitting the index of the desert tile
-    public ArrayList GetTerrainTilesIndex()
-    {
-        ArrayList terrainTilesIndex = new ArrayList();
-
-        for (int i = 0; i < terrainTilesList.Count; i++)
-        {
-            m_SelectedTerrainTile = (GameObject)terrainTilesList[i];
-            if (m_SelectedTerrainTile.name != "Desert(Clone)")
-            {
-                terrainTilesIndex.Add(i);
-            }
-        }
-
-        return terrainTilesIndex;
-    }
-
     private void SpawnNumberTiles(ArrayList terrainTilesList)
     {
         // Get and store the arraylist generated from the getNumberTilesBucket() method
         ArrayList numberBucket = GetNumberTilesBucket();
 
-        // An arraylist to store the indexes of each terrain tile
-        ArrayList terrainTilesIndex = GetTerrainTilesIndex();
+        // Generate an arraylist called terrainTilesIndex that just populates the arraylist with (0,1,2,3...) whilst omitting the index of the desert tile
+        ArrayList terrainTilesIndex = new ArrayList();
+
+        for (int i = 0; i < terrainTilesList.Count; i++)
+        {
+            m_SelectedTerrainTile = (GameObject)terrainTilesList[i];
+            if (m_SelectedTerrainTile.name != "Desert")
+            {
+                terrainTilesIndex.Add(i);
+            }
+        }
 
         // An arraylist to store number tiles that have been instantiated
         // This will only used to keep track of numberTile6 and numberTile8 (red number tiles) to make sure they don't spawn on adjacent hexes
@@ -126,8 +118,9 @@ public class GenerateNumberTiles : MonoBehaviour
             }
 
             // Instantiate the number tile above the selected terrain tile and make the number tile a child of it
-            numberTilesList.Add(Instantiate((GameObject)numberBucket[numberBucket.IndexOf(whichNumberTile)], new Vector3(selectedTerrainTilePosition.x, 6.0f, selectedTerrainTilePosition.z), Quaternion.Euler(0f, 0f, 0f)));
-            selectedNumberTile = (GameObject)numberTilesList[numberTilesList.Count - 1];
+            selectedNumberTile = Instantiate((GameObject)numberBucket[numberBucket.IndexOf(whichNumberTile)], new Vector3(selectedTerrainTilePosition.x, 6.0f, selectedTerrainTilePosition.z), Quaternion.Euler(0f, 0f, 0f));
+            selectedNumberTile.name = selectedNumberTile.name.Substring(0, selectedNumberTile.name.Length - 7);
+            numberTilesList.Add(selectedNumberTile);
             selectedNumberTile.transform.parent = m_SelectedTerrainTile.transform;
             
             // Remove the instantiated number tile from the bucket 
@@ -144,6 +137,7 @@ public class GenerateNumberTiles : MonoBehaviour
             m_SelectedTerrainTile = (GameObject)terrainTilesList[(int)terrainTilesIndex[rand]];
             selectedTerrainTilePosition = m_SelectedTerrainTile.transform.position;
             selectedNumberTile = Instantiate((GameObject)numberBucket[i], new Vector3(selectedTerrainTilePosition.x, 6.0f, selectedTerrainTilePosition.z), Quaternion.Euler(0f, 0f, 0f));
+            selectedNumberTile.name = selectedNumberTile.name.Substring(0, selectedNumberTile.name.Length - 7);
             selectedNumberTile.transform.parent = m_SelectedTerrainTile.transform;
             terrainTilesIndex.RemoveAt(rand);
         }

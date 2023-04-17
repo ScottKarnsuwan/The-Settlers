@@ -26,6 +26,9 @@ public class GenerateTiles : MonoBehaviour
     // An arraylist containing all of the terrain tiles that will be generated in the scene. This variable will be passed to other classes
     public ArrayList terrainTilesInstance = new ArrayList();
 
+    // A variable to store the most recently instantiated game object
+    private GameObject m_RecentObject;
+
     /*
     // Old implementation of the bucket system
     // An enum type called terrain that specifies the number of each terrain tiles to spawn
@@ -121,7 +124,11 @@ public class GenerateTiles : MonoBehaviour
                 // Check if the tiles are being generated at the bottom or leftmost side. If it is, get the index position from waterTilesIndexBottomLeft
                 if (zOffset == -gridSize || xOffset == -tilesInRow)
                 {
-                    Instantiate(waterTiles[waterTilesIndexBottomLeft % 2], new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
+                    m_RecentObject = Instantiate(waterTiles[waterTilesIndexBottomLeft % 2], new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
+
+                    // By default, instantiated game objects have the name "PrefabName(Clone)"
+                    // This renames the object to remove the last 7 letters of it's default name to get rid of "(Clone)"
+                    m_RecentObject.name = m_RecentObject.name.Substring(0, m_RecentObject.name.Length - 7);
                     waterTilesIndexBottomLeft++;
                 }
 
@@ -129,7 +136,8 @@ public class GenerateTiles : MonoBehaviour
                 else if (zOffset == gridSize || xOffset == tilesInRow)
                 {
                     // The position of the tile is calculated using the formula: x position = Sqrt(3) * radius * x offset, z position = 1.5 * radius * z offset
-                    Instantiate(waterTiles[waterTilesIndexTopRight % 2], new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
+                    m_RecentObject = Instantiate(waterTiles[waterTilesIndexTopRight % 2], new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
+                    m_RecentObject.name = m_RecentObject.name.Substring(0, m_RecentObject.name.Length - 7);
                     waterTilesIndexTopRight++;
                 }
 
@@ -138,12 +146,14 @@ public class GenerateTiles : MonoBehaviour
                     // A random number is used to access the terrainBucket arraylist
                     // The object is instantiated and then removed from the arraylist
                     int rand = UnityEngine.Random.Range(0, terrainBucket.Count);
-                    terrainTilesInstance.Add(Instantiate((GameObject)terrainBucket[rand], new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f)));
+                    m_RecentObject = Instantiate((GameObject)terrainBucket[rand], new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
+                    m_RecentObject.name = m_RecentObject.name.Substring(0, m_RecentObject.name.Length - 7);
+                    terrainTilesInstance.Add(m_RecentObject);
                     terrainBucket.RemoveAt(rand);
 
-
                     // A terrain tile is generated with an outline around it
-                    Instantiate(outline, new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
+                    m_RecentObject = Instantiate(outline, new Vector3(Mathf.Sqrt(3) * hexRadius * xOffset, 1, 1.5f * hexRadius * zOffset), Quaternion.Euler(0f, 30, 0f));
+                    m_RecentObject.name = m_RecentObject.name.Substring(0, m_RecentObject.name.Length - 7);
                 }
             }
             reverse_i -= 0.5f;

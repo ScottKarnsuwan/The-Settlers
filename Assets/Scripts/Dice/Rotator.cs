@@ -9,6 +9,8 @@ public class Rotator : MonoBehaviour
     public Button rollButton;
     private Rigidbody m_Rigidbody;
 
+    // OnEnable is called whenever this script is activated
+    // In this case it's called when the Dice button is clicked
     // When this script is activated reset the die's position and rotation
     // Make the Roll button interactable and disable gravity for the die
     void OnEnable()

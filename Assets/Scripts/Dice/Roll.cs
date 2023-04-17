@@ -7,20 +7,32 @@ using UnityEngine.UI;
 
 public class Roll : MonoBehaviour
 {
+    // Get a reference to the Roll and Back buttons
     public Button rollButton;
     public Button backButton;
 
+    [HideInInspector] public int highestFaceNumber;
+
     private Rigidbody m_Rigidbody;
     private float m_StillTimer;
-    private string m_HighestFace;
     private float m_HighestFacePosition;
+    private string m_HighestFaceString;
 
-    // When this script is activated, disable the Roll and Back button
-    // Apply gravity and a random torque to the die
+    // OnEnable is called whenever this script is activated
+    // In this case it's called when the Roll button is clicked
     void OnEnable()
-    {
+    {   
+        // Disable the Roll and Back button
         rollButton.interactable = false;
         backButton.interactable = false;
+
+        // Reset the result of the previous roll to 0
+        highestFaceNumber = 0;
+
+        // Enable the ResourceProduction script
+        FindObjectOfType<ResourceProduction>().enabled = true;
+
+        // Apply gravity and a random torque to the die
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Rigidbody.useGravity = true;
         float X = UnityEngine.Random.Range(-500, 500);
@@ -30,7 +42,7 @@ public class Roll : MonoBehaviour
     }
 
     // Update is called once per frame
-    // This checks whether the die has been still for 0.5 seconds
+    // This checks whether the die has been still for 0.5 seconds or more
     // If it has then disable this script, which will call the OnDisable() method
     void Update()
     {
@@ -44,9 +56,9 @@ public class Roll : MonoBehaviour
             m_StillTimer += Time.deltaTime;
         }
 
-        if (m_StillTimer >= 0.5f)
+        if (m_StillTimer >= 0.4f)
         {
-            this.enabled = false;
+            enabled = false;
         }
     }
 
@@ -60,10 +72,10 @@ public class Roll : MonoBehaviour
             if (child.transform.position.y > m_HighestFacePosition)
             {
                 m_HighestFacePosition = child.transform.position.y;
-                m_HighestFace = child.name;
+                m_HighestFaceString = child.name;
             }
         }
+        highestFaceNumber = int.Parse(m_HighestFaceString);
         m_Rigidbody.isKinematic = true;
-        // FindObjectOfType<ResourceProduction>().enabled = true;
     }
 }
