@@ -27,13 +27,18 @@ public class RoadManager : MonoBehaviour
 
         Vector3 selectedTerrainTilePosition;
         GameObject selectedRoad;
-        Vector3 selectedRoadPosition;
+
+        // An array of Vector3 variables to store the road positions
+        Vector3[] selectedRoadPositions = new Vector3[6];
+
+        // An array of quaternion variables to store the road rotations
+        Quaternion[] selectedRoadRotation = new Quaternion[6];
+
+        // An array of bool variables to check whether the roads have spawned in the same position
+        bool[] samePositions = new bool[6];
 
         // A variable to keep track of the number of roads that have been instantiated
         int roadCounter = 0;
-
-        // A variable to check whether the roads have spawned in the same position
-        bool samePosition = false;
 
         // Loop through every terrain tile
         foreach (GameObject terrainTile in m_TerrainTilesList)
@@ -41,172 +46,70 @@ public class RoadManager : MonoBehaviour
             // Get the position of the selected terrain tile
             selectedTerrainTilePosition = terrainTile.transform.position;
 
-            // Get the position of the road to be instantiated
-            // The road will be instantiated on the left edge of the selected terrain tile
-            selectedRoadPosition = new Vector3(selectedTerrainTilePosition.x - (Mathf.Sqrt(3) * m_hexRadius) / 2, 1.0f, selectedTerrainTilePosition.z);
+            // Get the position and rotation of the roads to be instantiated
+            // Left edge
+            selectedRoadPositions[0] = new Vector3(selectedTerrainTilePosition.x - (Mathf.Sqrt(3) * m_hexRadius) / 2, 1.0f, selectedTerrainTilePosition.z);
+            selectedRoadRotation[0] = Quaternion.identity;
+
+            // Right edge
+            selectedRoadPositions[1] = new Vector3(selectedTerrainTilePosition.x + (Mathf.Sqrt(3) * m_hexRadius) / 2, 1.0f, selectedTerrainTilePosition.z);
+            selectedRoadRotation[1] = Quaternion.identity;
+
+            // Top left edge
+            selectedRoadPositions[2] = new Vector3(selectedTerrainTilePosition.x - (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z + 0.75f * m_hexRadius);
+            selectedRoadRotation[2] = Quaternion.Euler(0, 60, 0);
+
+            // Top right edge
+            selectedRoadPositions[3] = new Vector3(selectedTerrainTilePosition.x + (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z + 0.75f * m_hexRadius);
+            selectedRoadRotation[3] = Quaternion.Euler(0, -60, 0);
+
+            // Bottom left edge
+            selectedRoadPositions[4] = new Vector3(selectedTerrainTilePosition.x - (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z - 0.75f * m_hexRadius);
+            selectedRoadRotation[4] = Quaternion.Euler(0, -60, 0);
+
+            // Bottom right edge
+            selectedRoadPositions[5] = new Vector3(selectedTerrainTilePosition.x + (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z - 0.75f * m_hexRadius);
+            selectedRoadRotation[5] = Quaternion.Euler(0, 60, 0);
 
             // A loop that iterates through roadsList to check if there is already an instantiated road in the same position
             foreach (GameObject road in roadsList)
             {
                 Vector3 roadPosition = road.transform.position;
-                if (Math.Abs(Vector3.Distance(selectedRoadPosition, roadPosition)) < 0.1)
+                for (int i = 0; i < 6; i++)
                 {
-                    samePosition = true;
+                    if (Math.Abs(Vector3.Distance(selectedRoadPositions[i], roadPosition)) < 0.1)
+                    {
+                        samePositions[i] = true;
+                    }
                 }
             }
 
-            if (samePosition)
+            for (int i = 0; i < 6; i++)
             {
-                samePosition = false;
-            }
-
-            // If a road doesn't currently exists there, spawn a road
-            else
-            {
-                selectedRoad = Instantiate((GameObject)road, selectedRoadPosition, Quaternion.identity);
-
-                // Change the name of the road to include the order it generated in
-                selectedRoad.name = selectedRoad.name.Substring(0, selectedRoad.name.Length - 7) + roadCounter;
-                roadCounter++;
-
-                // Make the road invisible
-                selectedRoad.GetComponentInChildren<Renderer>().enabled = false;
-
-                roadsList.Add(selectedRoad);
-                samePosition = false;
-            }
-
-            // Do the same thing again but for the right edge of the selected terrain tile
-            selectedRoadPosition = new Vector3(selectedTerrainTilePosition.x + (Mathf.Sqrt(3) * m_hexRadius) / 2, 1.0f, selectedTerrainTilePosition.z);
-            foreach (GameObject road in roadsList)
-            {
-                Vector3 roadPosition = road.transform.position;
-                if (Math.Abs(Vector3.Distance(selectedRoadPosition, roadPosition)) < 0.1)
+                // If a road doesn't currently exists there, spawn a road
+                if (samePositions[i])
                 {
-                    samePosition = true;
+                    samePositions[i] = false;
                 }
-            }
 
-            if (samePosition)
-            {
-                samePosition = false;
-            }
-
-            else
-            {
-                selectedRoad = Instantiate((GameObject)road, selectedRoadPosition, Quaternion.identity);
-                selectedRoad.name = selectedRoad.name.Substring(0, selectedRoad.name.Length - 7) + roadCounter;
-                roadCounter++;
-                selectedRoad.GetComponentInChildren<Renderer>().enabled = false;
-                roadsList.Add(selectedRoad);
-                samePosition = false;
-            }
-
-            // Check the top left edge
-            selectedRoadPosition = new Vector3(selectedTerrainTilePosition.x - (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z + 0.75f * m_hexRadius);
-            foreach (GameObject road in roadsList)
-            {
-                Vector3 roadPosition = road.transform.position;
-                if (Math.Abs(Vector3.Distance(selectedRoadPosition, roadPosition)) < 0.1)
+                else
                 {
-                    samePosition = true;
+                    selectedRoad = Instantiate((GameObject)road, selectedRoadPositions[i], selectedRoadRotation[i]);
+
+                    // Change the name of the road to include the order it generated in
+                    selectedRoad.name = selectedRoad.name.Substring(0, selectedRoad.name.Length - 7) + roadCounter;
+                    roadCounter++;
+
+                    // Make the road invisible
+                    selectedRoad.GetComponentInChildren<Renderer>().enabled = false;
+
+                    roadsList.Add(selectedRoad);
+                    samePositions[i] = false;
                 }
-            }
-
-            if (samePosition)
-            {
-                samePosition = false;
-            }
-
-            else
-            {
-                selectedRoad = Instantiate((GameObject)road, selectedRoadPosition, Quaternion.Euler(0, 60, 0));
-                selectedRoad.name = selectedRoad.name.Substring(0, selectedRoad.name.Length - 7) + roadCounter;
-                roadCounter++;
-                selectedRoad.GetComponentInChildren<Renderer>().enabled = false;
-                roadsList.Add(selectedRoad);
-                samePosition = false;
-            }
-
-            // Check the top right edge
-            selectedRoadPosition = new Vector3(selectedTerrainTilePosition.x + (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z + 0.75f * m_hexRadius);
-            foreach (GameObject road in roadsList)
-            {
-                Vector3 roadPosition = road.transform.position;
-                if (Math.Abs(Vector3.Distance(selectedRoadPosition, roadPosition)) < 0.1)
-                {
-                    samePosition = true;
-                }
-            }
-
-            if (samePosition)
-            {
-                samePosition = false;
-            }
-
-            else
-            {
-                selectedRoad = Instantiate((GameObject)road, selectedRoadPosition, Quaternion.Euler(0, -60, 0));
-                selectedRoad.name = selectedRoad.name.Substring(0, selectedRoad.name.Length - 7) + roadCounter;
-                roadCounter++;
-                selectedRoad.GetComponentInChildren<Renderer>().enabled = false;
-                roadsList.Add(selectedRoad);
-                samePosition = false;
-            }
-
-            // Check the bottom left edge
-            selectedRoadPosition = new Vector3(selectedTerrainTilePosition.x - (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z - 0.75f * m_hexRadius);
-            foreach (GameObject road in roadsList)
-            {
-                Vector3 roadPosition = road.transform.position;
-                if (Math.Abs(Vector3.Distance(selectedRoadPosition, roadPosition)) < 0.1)
-                {
-                    samePosition = true;
-                }
-            }
-
-            if (samePosition)
-            {
-                samePosition = false;
-            }
-
-            else
-            {
-                selectedRoad = Instantiate((GameObject)road, selectedRoadPosition, Quaternion.Euler(0, -60, 0));
-                selectedRoad.name = selectedRoad.name.Substring(0, selectedRoad.name.Length - 7) + roadCounter;
-                roadCounter++;
-                selectedRoad.GetComponentInChildren<Renderer>().enabled = false;
-                roadsList.Add(selectedRoad);
-                samePosition = false;
-            }
-
-            // Check the bottom right edge
-            selectedRoadPosition = new Vector3(selectedTerrainTilePosition.x + (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z - 0.75f * m_hexRadius);
-            foreach (GameObject road in roadsList)
-            {
-                Vector3 roadPosition = road.transform.position;
-                if (Math.Abs(Vector3.Distance(selectedRoadPosition, roadPosition)) < 0.1)
-                {
-                    samePosition = true;
-                }
-            }
-
-            if (samePosition)
-            {
-                samePosition = false;
-            }
-
-            else
-            {
-                selectedRoad = Instantiate((GameObject)road, selectedRoadPosition, Quaternion.Euler(0, 60, 0));
-                selectedRoad.name = selectedRoad.name.Substring(0, selectedRoad.name.Length - 7) + roadCounter;
-                roadCounter++;
-                selectedRoad.GetComponentInChildren<Renderer>().enabled = false;
-                roadsList.Add(selectedRoad);
-                samePosition = false;
             }
         }
     }
+
 
     // Enable the roads to be interactive
     public void EnableRoads()
