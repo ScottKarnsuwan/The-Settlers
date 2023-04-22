@@ -77,5 +77,6 @@ public class Roll : MonoBehaviour
         }
         highestFaceNumber = int.Parse(m_HighestFaceString);
         m_Rigidbody.isKinematic = true;
+        backButton.interactable = true;
     }
 }

@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: e71e7584c9946dc43a779dd33310c7b6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - desert: {instanceID: 0}
+  - hills: {instanceID: 0}
+  - mountains: {instanceID: 0}
+  - forest: {instanceID: 0}
+  - fields: {instanceID: 0}
+  - pasture: {instanceID: 0}
+  - sea: {instanceID: 0}
+  - harbour: {instanceID: 0}
+  - Outline: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
