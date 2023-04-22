@@ -34,6 +34,25 @@ public class RoadManager : MonoBehaviour
         // An array of quaternion variables to store the road rotations
         Quaternion[] selectedRoadRotation = new Quaternion[6];
 
+        // Left edge
+        selectedRoadRotation[0] = Quaternion.identity;
+
+        // Right edge
+        selectedRoadRotation[1] = Quaternion.identity;
+
+        // Top left edge
+        selectedRoadRotation[2] = Quaternion.Euler(0, 60, 0);
+
+        // Top right edge
+        selectedRoadRotation[3] = Quaternion.Euler(0, -60, 0);
+
+        // Bottom left edge
+        selectedRoadRotation[4] = Quaternion.Euler(0, -60, 0);
+
+        // Bottom right edge
+        selectedRoadRotation[5] = Quaternion.Euler(0, 60, 0);
+
+
         // An array of bool variables to check whether the roads have spawned in the same position
         bool[] samePositions = new bool[6];
 
@@ -46,30 +65,24 @@ public class RoadManager : MonoBehaviour
             // Get the position of the selected terrain tile
             selectedTerrainTilePosition = terrainTile.transform.position;
 
-            // Get the position and rotation of the roads to be instantiated
+            // Get the position of the roads to be instantiated
             // Left edge
             selectedRoadPositions[0] = new Vector3(selectedTerrainTilePosition.x - (Mathf.Sqrt(3) * m_hexRadius) / 2, 1.0f, selectedTerrainTilePosition.z);
-            selectedRoadRotation[0] = Quaternion.identity;
 
             // Right edge
             selectedRoadPositions[1] = new Vector3(selectedTerrainTilePosition.x + (Mathf.Sqrt(3) * m_hexRadius) / 2, 1.0f, selectedTerrainTilePosition.z);
-            selectedRoadRotation[1] = Quaternion.identity;
 
             // Top left edge
             selectedRoadPositions[2] = new Vector3(selectedTerrainTilePosition.x - (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z + 0.75f * m_hexRadius);
-            selectedRoadRotation[2] = Quaternion.Euler(0, 60, 0);
 
             // Top right edge
             selectedRoadPositions[3] = new Vector3(selectedTerrainTilePosition.x + (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z + 0.75f * m_hexRadius);
-            selectedRoadRotation[3] = Quaternion.Euler(0, -60, 0);
 
             // Bottom left edge
             selectedRoadPositions[4] = new Vector3(selectedTerrainTilePosition.x - (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z - 0.75f * m_hexRadius);
-            selectedRoadRotation[4] = Quaternion.Euler(0, -60, 0);
 
             // Bottom right edge
             selectedRoadPositions[5] = new Vector3(selectedTerrainTilePosition.x + (Mathf.Sqrt(3) * m_hexRadius) / 4, 1.0f, selectedTerrainTilePosition.z - 0.75f * m_hexRadius);
-            selectedRoadRotation[5] = Quaternion.Euler(0, 60, 0);
 
             // A loop that iterates through roadsList to check if there is already an instantiated road in the same position
             foreach (GameObject road in roadsList)
