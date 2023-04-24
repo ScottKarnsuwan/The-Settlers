@@ -59,8 +59,7 @@ public class Road : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
         // Remove this road from the roadsList
         // This is to prevent the same road from being built twice
-        int roadNumber = int.Parse(gameObject.name.Substring(4));
-        roadsList.RemoveAt(roadNumber);
+        roadsList.Remove(gameObject);
 
         // Switch from the road building screen back to the build and trade phase screen
         FindObjectOfType<ScreenManager>().DisableRoadBuilding();

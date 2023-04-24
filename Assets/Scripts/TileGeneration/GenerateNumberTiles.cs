@@ -41,6 +41,9 @@ public class GenerateNumberTiles : MonoBehaviour
 
         // Enable the GenerateRoads script
         FindObjectOfType<RoadManager>().SpawnRoads();
+
+        // Enable the GenerateSettlements script
+        FindObjectOfType<SettlementManager>().SpawnSettlements();
     }
 
     // Generate an arraylist called numberBuckeet that stores the correct number of each number tile

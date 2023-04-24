@@ -85,9 +85,9 @@ public class CameraController : MonoBehaviour
 
         // Set boundaries to limit where the camera can move
         m_CameraBoundary = cameraBox.transform.position;
-        m_CameraBoundary.x = Mathf.Clamp(m_CameraBoundary.x, -128.5f, 127.5f);
+        m_CameraBoundary.x = Mathf.Clamp(m_CameraBoundary.x, -128f, 128f);
         m_CameraBoundary.y = Mathf.Clamp(m_CameraBoundary.y, 21.5f, 75);
-        m_CameraBoundary.z = Mathf.Clamp(m_CameraBoundary.z, -127.5f, 128.5f);
+        m_CameraBoundary.z = Mathf.Clamp(m_CameraBoundary.z, -128f, 128f);
         cameraBox.transform.position = m_CameraBoundary;
 
         // Allow the camera to be rotated while the right mouse button is held down

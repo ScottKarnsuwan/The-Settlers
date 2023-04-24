@@ -127,7 +127,6 @@ public class RoadManager : MonoBehaviour
     // Enable the roads to be interactive
     public void EnableRoads()
     {
-        // roadsList = FindObjectOfType<RoadManager>().roadsList;
         foreach (GameObject road in roadsList)
         {
             road.GetComponent<Road>().enabled = true;
@@ -137,7 +136,6 @@ public class RoadManager : MonoBehaviour
     // Disable interactivity
     public void DisableRoads()
     {
-        // roadsList = FindObjectOfType<RoadManager>().roadsList;
         foreach (GameObject road in roadsList)
         {
             road.GetComponent<Road>().enabled = false;
