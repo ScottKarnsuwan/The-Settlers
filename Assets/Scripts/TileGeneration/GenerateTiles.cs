@@ -23,6 +23,9 @@ public class GenerateTiles : MonoBehaviour
 
     public int gridSize = 3;
 
+    // Initialize the terrainBucket array list
+    [HideInInspector] public ArrayList terrainBucket = new ArrayList();
+
     // An arraylist containing all of the terrain tiles that will be generated in the scene
     // This variable will be passed to other classes
     public ArrayList terrainTilesInstance = new ArrayList();
@@ -47,7 +50,10 @@ public class GenerateTiles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SpawnTiles();
+        SpawnTiles();
+
+        // Enable the GenerateNumberTiles script
+        FindObjectOfType<GenerateNumberTiles>().enabled = true;
     }
 
     /*
@@ -76,15 +82,14 @@ public class GenerateTiles : MonoBehaviour
     */
 
     // Generate an arraylist called terrainBucket that stores the correct number of each terrain tile
-    private ArrayList getTerrainBucket()
+    private void getTerrainBucket()
     {
         GameObject[] terrainTiles = {forest, fields, pasture, hills, mountains};
 
         // Calculate the number of terrain tiles needed minus the desert tile
         double numberOfTerrainTiles = 3*Math.Pow(gridSize, 2) - 3 * gridSize;
 
-        // Initialize the terrainBucket array list and add the desert tile first
-        ArrayList terrainBucket = new ArrayList();
+        // Add the desert tile first
         terrainBucket.Add(desert);
 
         // A for loop to add terrain tiles into the bucket
@@ -92,14 +97,12 @@ public class GenerateTiles : MonoBehaviour
         {
             terrainBucket.Add(terrainTiles[i % 5]);
         }
-        return terrainBucket;
-
     }
 
-    public ArrayList SpawnTiles()
+    public void SpawnTiles()
     {
         // Get and store the arraylists generated from these two method calls
-        ArrayList terrainBucket = getTerrainBucket();
+        getTerrainBucket();
         GameObject[] waterTiles = {sea, harbour};
 
         // These variables are used as the index position to access waterTiles to get the sea and harbour tiles in the correct place
@@ -160,6 +163,5 @@ public class GenerateTiles : MonoBehaviour
             reverse_i -= 0.5f;
             zOffset --;
         }
-        return terrainTilesInstance;
     }
 }

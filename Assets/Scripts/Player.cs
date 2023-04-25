@@ -5,26 +5,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private int settlements = 5;
-    private int cities = 4;
-    private int roads = 15;
-    private Boolean canPlace = false;
-
-
-
-
-    // Update is called once per frame
-    void Update()
+    private List<int>turn = new List<int>();
+    private int playerTurn = 0;
+     void Start()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Vector3 mousePos = Input.mousePosition;
-            {
-                String pos = (mousePos.x + " " + mousePos.y);
-                Debug.Log(pos);
-            }
+        //The game starts at turn 0 and will initalize everything
 
-        }
     }
+    public void Game()
+    {
+      
+    }
+
 }
+
 

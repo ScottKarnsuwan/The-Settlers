@@ -28,21 +28,21 @@ public class GenerateNumberTiles : MonoBehaviour
     public ArrayList terrainTilesList = new ArrayList();
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         // Get and store the hexagon radius by passing the value from the GenerateTiles script
         m_hexRadius = FindObjectOfType<GenerateTiles>().hexRadius;
 
-        // Call the SpawnTiles() method from the GenerateTiles script and store the return value in terrainTilesList
+        // Get the terrainTiles Instance variable from the GenerateTiles script and store the value in terrainTilesList
         // This also instantiates the tiles into the scene
-        terrainTilesList = FindObjectOfType<GenerateTiles>().SpawnTiles();
+        terrainTilesList = FindObjectOfType<GenerateTiles>().terrainTilesInstance;
 
         SpawnNumberTiles(terrainTilesList);
 
-        // Enable the GenerateRoads script
+        // Enable the SpawnRoads method from the RoadManager script
         FindObjectOfType<RoadManager>().SpawnRoads();
 
-        // Enable the GenerateSettlements script
+        // Enable the SpawnSettlements method from the SettlementManager script
         FindObjectOfType<SettlementManager>().SpawnSettlements();
     }
 

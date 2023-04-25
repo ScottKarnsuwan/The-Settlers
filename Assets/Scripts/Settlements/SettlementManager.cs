@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Bson;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SettlementManager : MonoBehaviour
@@ -11,12 +13,14 @@ public class SettlementManager : MonoBehaviour
     // An arraylist containing all of the settlements that will be generated in the scene
     public ArrayList settlementsList = new ArrayList();
 
+    public ArrayList builtSettlementsList = new ArrayList();
+
     private int m_hexRadius;
 
     // An arraylist to contain all of the terrain tiles that have been instantiated into the scene
     private ArrayList m_TerrainTilesList = new ArrayList();
 
-    // Spawn a settlement on all the edges of every terrain tile
+    // Spawn a settlement on all the vertices of every terrain tile
     public void SpawnSettlements()
     {
         // Get and store the hexagon radius by passing the value from the GenerateTiles script
@@ -102,7 +106,6 @@ public class SettlementManager : MonoBehaviour
         }
     }
 
-
     // Enable the settlements to be interactive
     public void EnableSettlements()
     {
@@ -120,4 +123,24 @@ public class SettlementManager : MonoBehaviour
             settlement.GetComponent<Settlement>().enabled = false;
         }
     }
+
+    // Enable the built settlements to be upgradable
+    public void EnableUpgrades()
+    {
+        foreach (GameObject settlement in builtSettlementsList)
+        {
+            settlement.GetComponent<UpgradeSettlement>().enabled = true;
+        }
+    }
+
+    // Disable upgradability
+    public void DisableUpgrades()
+    {
+        foreach (GameObject settlement in builtSettlementsList)
+        {
+            settlement.GetComponent<UpgradeSettlement>().enabled = false;
+        }
+    }
+
+
 }
