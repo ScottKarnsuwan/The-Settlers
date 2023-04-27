@@ -101,7 +101,7 @@ public class Settlement : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         settlementsToRemove.Clear();
 
         // Switch from the settlement building screen back to the build and trade phase screen
-        FindObjectOfType<ScreenManager>().DisableSettlementBuilding();
+        FindObjectOfType<ScreenManager>().DisableSettlementBuildingScreen();
 
         // Disable this script attached to this settlement
         enabled = false;

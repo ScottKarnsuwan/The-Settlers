@@ -62,7 +62,7 @@ public class Road : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         roadsList.Remove(gameObject);
 
         // Switch from the road building screen back to the build and trade phase screen
-        FindObjectOfType<ScreenManager>().DisableRoadBuilding();
+        FindObjectOfType<ScreenManager>().DisableRoadBuildingScreen();
 
         // Disable this script attached to this road
         enabled = false;

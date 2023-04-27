@@ -131,10 +131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlight: {fileID: 8214388400082332127}
-  brickCount: 0
-  lumberCount: 0
-  RoadBuildingScreen: {fileID: 0}
-  BuildAndTradePhaseScreen: {fileID: 0}
 --- !u!65 &667731313750086071
 BoxCollider:
   m_ObjectHideFlags: 0

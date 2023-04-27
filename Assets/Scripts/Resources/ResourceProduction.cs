@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Xml.Schema;
 using TMPro;
 using UnityEngine;
 
@@ -9,9 +11,10 @@ public class ResourceProduction : MonoBehaviour
     public GameObject dice1;
     public GameObject dice2;
 
-    // Get a reference to the BuildAndTradePhaseScreen and DiceScreen
-    public GameObject BuildAndTradePhaseScreen;
+    // Get a reference to the different screens to switch between
+    public GameObject buildAndTradePhaseScreen;
     public GameObject diceScreen;
+    public GameObject robberScreen;
 
     // Create variables to keep track of the resource count
     // They are public which means that they can be referenced by other scripts
@@ -80,12 +83,63 @@ public class ResourceProduction : MonoBehaviour
         // Once the dice have finished rolling, add them together
         m_RollResult = m_Dice1.highestFaceNumber + m_Dice2.highestFaceNumber;
 
-        // Switch back to the main screen
         diceScreen.SetActive(false);
-        BuildAndTradePhaseScreen.SetActive(true);
 
-        // Start the GiveResources coroutine
-        yield return StartCoroutine(GiveResources());
+        if (m_RollResult == 7)
+        {
+            int resourceCount = brickCount + lumberCount + oreCount + grainCount + woolCount;
+
+            // If anyone has more than 7 resource cards, discard half of them
+            if (resourceCount > 7)
+            {
+                int[] resourceArrayInt = {brickCount, lumberCount, oreCount, grainCount, woolCount};
+                string[] resourceArraystring = {"brick", "lumber", "ore", "grain", "wool"};
+
+                // Create a list of total resources
+                List<string> resourceList = new List<string>();
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < resourceArrayInt[i]; j++)
+                    {
+                        resourceList.Add(resourceArraystring[i]);
+                    }
+                }
+
+                // Remove half from the list randomly
+                for (int i = 0; i < resourceCount/2; i++)
+                {
+                    int rand = UnityEngine.Random.Range(0, resourceList.Count);
+                    resourceList.RemoveAt(rand);
+                }
+
+                // Count the number of each resources left after halving
+                brickCount = resourceList.FindAll(item => item == "brick").Count;
+                lumberCount = resourceList.FindAll(item => item == "lumber").Count;
+                oreCount = resourceList.FindAll(item => item == "ore").Count;
+                grainCount = resourceList.FindAll(item => item == "grain").Count;
+                woolCount = resourceList.FindAll(item => item == "wool").Count;
+
+                // Call the UpdateResourceCount from the ResourceCounter script
+                FindObjectOfType<ResourceCounter>().UpdateResourceCount(brickCount, lumberCount, oreCount, grainCount, woolCount);
+            }
+
+            // Switch to the RobberScreen
+            robberScreen.SetActive(true);
+
+            FindObjectOfType<RobberManager>().EnableRobber();
+
+            // Disable this script
+            enabled = false;
+        }
+
+        else
+        {
+            // Switch back to the BuildAndTradePhaseScreen
+            buildAndTradePhaseScreen.SetActive(true);
+
+            // Start the GiveResources coroutine
+            yield return StartCoroutine(GiveResources());
+        }
     }
 
     private IEnumerator GiveResources()
@@ -93,7 +147,7 @@ public class ResourceProduction : MonoBehaviour
         // Loop through every terrain tile and find which ones have a number tile that matches the roll result
         foreach (GameObject terrainTile in m_TerrainTilesList)
         {
-            if (terrainTile.transform.Find("Number Tile "+ m_RollResult))
+            if (terrainTile.transform.Find("Number Tile "+ m_RollResult) && !terrainTile.transform.Find("Robber"))
             {
                 // Incremeent the appropriate resource count
                 if (terrainTile.name == "Hills")

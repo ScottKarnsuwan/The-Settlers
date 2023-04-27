@@ -11,7 +11,7 @@ public class UpgradeSettlement : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public GameObject city;
     public GameObject cityHighlight;
 
-    public AudioSource villagerNoise;
+    public AudioSource villagerAudio;
 
     private ArrayList builtSettlementsList = new ArrayList();
 
@@ -41,7 +41,7 @@ public class UpgradeSettlement : MonoBehaviour, IPointerEnterHandler, IPointerEx
         // Make the 'ghost city' visible
         cityHighlight.SetActive(true);
 
-        villagerNoise.Play();
+        villagerAudio.Play();
     }
 
     // This is activated when the mouse no longer hovers over the settlement
@@ -69,6 +69,6 @@ public class UpgradeSettlement : MonoBehaviour, IPointerEnterHandler, IPointerEx
         Destroy(gameObject);
 
         // Switch from the city building screen back to the build and trade phase screen
-        FindObjectOfType<ScreenManager>().DisableSettlementUpgrading();
+        FindObjectOfType<ScreenManager>().DisableSettlementUpgradingScreen();
     }
 }

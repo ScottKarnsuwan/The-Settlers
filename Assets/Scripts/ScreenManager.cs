@@ -12,6 +12,7 @@ public class ScreenManager : MonoBehaviour
     public GameObject roadBuildingScreen;
     public GameObject settlementBuildingScreen;
     public GameObject cityBuildingScreen;
+    public GameObject robberScreen;
 
     public Button roadsButton;
     public Button settlementsButton;
@@ -68,25 +69,34 @@ public class ScreenManager : MonoBehaviour
     }
 
     // This is called by the Road script to switch from the road building screen to the build and trade phase screen
-    public void DisableRoadBuilding()
+    public void DisableRoadBuildingScreen()
     {
         roadBuildingScreen.SetActive(false);
         buildAndTradePhaseScreen.SetActive(true);
         FindObjectOfType<RoadManager>().DisableRoads();
     }
 
-    // This is called by the Settlement to switch from the settlement building screen to the build and trade phase screen
-    public void DisableSettlementBuilding()
+    // This is called by the Settlement script to switch from the settlement building screen to the build and trade phase screen
+    public void DisableSettlementBuildingScreen()
     {
         settlementBuildingScreen.SetActive(false);
         buildAndTradePhaseScreen.SetActive(true);
         FindObjectOfType<SettlementManager>().DisableSettlements();
     }
 
-    public void DisableSettlementUpgrading()
+    // This is called by the UpgradeSettlement script to switch from the city building screen to the build and trade phase screen
+    public void DisableSettlementUpgradingScreen()
     {
         cityBuildingScreen.SetActive(false);
         buildAndTradePhaseScreen.SetActive(true);
         FindObjectOfType<SettlementManager>().DisableUpgrades();
+    }
+
+    // This is called by the MoveRobber script to switch from the robber screen to the build and trade phase screen
+    public void DisableRobberScrreen()
+    {
+        robberScreen.SetActive(false);
+        buildAndTradePhaseScreen.SetActive(true);
+        FindObjectOfType<RobberManager>().DisableRobber();
     }
 }
