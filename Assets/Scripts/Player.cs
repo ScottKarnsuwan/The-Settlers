@@ -5,18 +5,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private List<int>turn = new List<int>();
-    private int playerTurn = 0;
-     void Start()
-    {
-        //The game starts at turn 0 and will initalize everything
+    public string m_PlayerColor;
+    public int m_PlayerNumber;
 
-    }
-    public void Game()
-    {
-      
-    }
+    public int m_BrickCount;
+    public int m_LumberCount;
+    public int m_OreCount;
+    public int m_GrainCount;
+    public int m_WoolCount;
 
+    public int m_VictoryPoints;
 }
 
 

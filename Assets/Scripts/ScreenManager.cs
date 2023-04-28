@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-// More will be added to this class as the game develops
 public class ScreenManager : MonoBehaviour
 {
     // Get a reference to the different screens to switch between

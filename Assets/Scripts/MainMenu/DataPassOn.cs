@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -29,11 +30,6 @@ public class DataPassOn : MonoBehaviour
             case 4: Debug.Log("Five players");
                 playerCount = 5;
                 break;
-            case 5: Debug.Log("Six players");
-                playerCount = 6;
-                break;
         }
-
-
     }
 }
