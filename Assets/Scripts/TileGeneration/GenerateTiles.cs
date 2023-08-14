@@ -81,7 +81,7 @@ public class GenerateTiles : MonoBehaviour
     }
     */
 
-    // Generate an arraylist called terrainBucket that stores the correct number of each terrain tile
+    // Initialize an arraylist called terrainBucket that stores the correct number of each terrain tile
     private void getTerrainBucket()
     {
         GameObject[] terrainTiles = {forest, fields, pasture, hills, mountains};
@@ -101,7 +101,6 @@ public class GenerateTiles : MonoBehaviour
 
     public void SpawnTiles()
     {
-        // Get and store the arraylists generated from these two method calls
         getTerrainBucket();
         GameObject[] waterTiles = {sea, harbour};
 

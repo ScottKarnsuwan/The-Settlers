@@ -32,7 +32,7 @@ public class ResourceProduction : MonoBehaviour
     private int m_RollResult;
 
     // This arraylist will store all of the number tiles that match the dice roll result
-    private ArrayList m_SelectedNumberTileList = new ArrayList();
+    private ArrayList m_SelectedNumberTilesList = new ArrayList();
 
     // A variable to store the duration of how long the number tile will stay green for before going back to its original color
     private WaitForSeconds m_ColorWait;
@@ -87,44 +87,17 @@ public class ResourceProduction : MonoBehaviour
 
         if (m_RollResult == 7)
         {
+
+            // Switch to the RobberScreen
+            robberScreen.SetActive(true);
+
             int resourceCount = brickCount + lumberCount + oreCount + grainCount + woolCount;
 
             // If anyone has more than 7 resource cards, discard half of them
             if (resourceCount > 7)
             {
-                int[] resourceArrayInt = {brickCount, lumberCount, oreCount, grainCount, woolCount};
-                string[] resourceArraystring = {"brick", "lumber", "ore", "grain", "wool"};
-
-                // Create a list of total resources
-                List<string> resourceList = new List<string>();
-                for (int i = 0; i < 5; i++)
-                {
-                    for (int j = 0; j < resourceArrayInt[i]; j++)
-                    {
-                        resourceList.Add(resourceArraystring[i]);
-                    }
-                }
-
-                // Remove half from the list randomly
-                for (int i = 0; i < resourceCount/2; i++)
-                {
-                    int rand = UnityEngine.Random.Range(0, resourceList.Count);
-                    resourceList.RemoveAt(rand);
-                }
-
-                // Count the number of each resources left after halving
-                brickCount = resourceList.FindAll(item => item == "brick").Count;
-                lumberCount = resourceList.FindAll(item => item == "lumber").Count;
-                oreCount = resourceList.FindAll(item => item == "ore").Count;
-                grainCount = resourceList.FindAll(item => item == "grain").Count;
-                woolCount = resourceList.FindAll(item => item == "wool").Count;
-
-                // Call the UpdateResourceCount from the ResourceCounter script
-                FindObjectOfType<ResourceCounter>().UpdateResourceCount(brickCount, lumberCount, oreCount, grainCount, woolCount);
+                FindObjectOfType<RobberManager>().DiscardHalf();
             }
-
-            // Switch to the RobberScreen
-            robberScreen.SetActive(true);
 
             FindObjectOfType<RobberManager>().EnableRobber();
 
@@ -173,7 +146,7 @@ public class ResourceProduction : MonoBehaviour
 
                 // Store the matching number tile into an arraylist
                 Transform numberTile = terrainTile.transform.Find("Number Tile " + m_RollResult);
-                m_SelectedNumberTileList.Add(numberTile.GetChild(0));
+                m_SelectedNumberTilesList.Add(numberTile.GetChild(0));
             }
         }
 
@@ -184,7 +157,7 @@ public class ResourceProduction : MonoBehaviour
         enabled = false;
 
         // Loop through the matching number tiles and turn them green
-        foreach (Transform selectedNumberTile in m_SelectedNumberTileList)
+        foreach (Transform selectedNumberTile in m_SelectedNumberTilesList)
         {
             selectedNumberTile.GetComponent<Renderer>().material.color = Color.green;
         }
@@ -193,11 +166,11 @@ public class ResourceProduction : MonoBehaviour
         yield return m_ColorWait;
 
         // Turn the number tiles back to their original color
-        foreach (Transform selectedNumberTile in m_SelectedNumberTileList)
+        foreach (Transform selectedNumberTile in m_SelectedNumberTilesList)
         {
             selectedNumberTile.GetComponent<Renderer>().material.color = Color.white;
         }
 
-        m_SelectedNumberTileList.Clear();
+        m_SelectedNumberTilesList.Clear();
     }
 }

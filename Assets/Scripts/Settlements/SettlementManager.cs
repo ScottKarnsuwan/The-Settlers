@@ -100,7 +100,6 @@ public class SettlementManager : MonoBehaviour
                     settlementMesh.gameObject.SetActive(false);
 
                     settlementsList.Add(selectedSettlement);
-                    samePositions[i] = false;
                 }
             }
         }
@@ -141,6 +140,4 @@ public class SettlementManager : MonoBehaviour
             settlement.GetComponent<UpgradeSettlement>().enabled = false;
         }
     }
-
-
 }

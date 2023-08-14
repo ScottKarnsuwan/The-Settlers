@@ -117,7 +117,6 @@ public class RoadManager : MonoBehaviour
                     selectedRoad.GetComponentInChildren<Renderer>().enabled = false;
 
                     roadsList.Add(selectedRoad);
-                    samePositions[i] = false;
                 }
             }
         }

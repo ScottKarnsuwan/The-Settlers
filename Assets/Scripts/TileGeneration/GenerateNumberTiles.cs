@@ -37,7 +37,7 @@ public class GenerateNumberTiles : MonoBehaviour
         // This also instantiates the tiles into the scene
         terrainTilesList = FindObjectOfType<GenerateTiles>().terrainTilesInstance;
 
-        SpawnNumberTiles(terrainTilesList);
+        SpawnNumberTiles();
 
         // Enable the SpawnRoads method from the RoadManager script
         FindObjectOfType<RoadManager>().SpawnRoads();
@@ -62,7 +62,7 @@ public class GenerateNumberTiles : MonoBehaviour
         return numberBucket;
     }
 
-    private void SpawnNumberTiles(ArrayList terrainTilesList)
+    private void SpawnNumberTiles()
     {
         // Get and store the arraylist generated from the getNumberTilesBucket() method
         ArrayList numberBucket = GetNumberTilesBucket();

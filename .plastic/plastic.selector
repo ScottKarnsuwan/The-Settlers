@@ -1,4 +1,0 @@
-repository "The Settlers@University_of_Sussex@cloud"
-  path "/"
-    br "/main"
-    co "/main"
